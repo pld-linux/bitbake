@@ -31,12 +31,12 @@ python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}%{_sysconfdir}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}
 python setup.py install \
 	--prefix=%{_prefix} \
-	--root=${RPM_BUILD_ROOT}
+	--root=$RPM_BUILD_ROOT
 
-mv ${RPM_BUILD_ROOT}%{_prefix}/%{name} ${RPM_BUILD_ROOT}%{_sysconfdir}/
+mv $RPM_BUILD_ROOT%{_prefix}/%{name} $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
