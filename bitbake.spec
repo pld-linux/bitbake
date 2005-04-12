@@ -26,7 +26,7 @@ other Linux distributions.
 
 %description -l pl
 BitBake to proste narzêdzie do wykonywania zadañ. Wywodzi siê z
-Portage, ktore jest systemem zarz±dzania pakietami u¿ywanym w
+Portage, które jest systemem zarz±dzania pakietami u¿ywanym w
 dystrybucji Linuksa Gentoo. Najczê¶ciej jest u¿ywane do budowania
 pakietów, jako ¿e mo¿e ³atwo u¿ywaæ swojej elementarnej dziedziczno¶ci
 do abstrahowania wspólnych operacji, takich jak pobieranie ¼róde³,
