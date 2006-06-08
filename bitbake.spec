@@ -1,12 +1,12 @@
 Summary:	BitBake build tool
 Summary(pl):	BitBake - narzêdzie do budowania
 Name:		bitbake
-Version:	1.2
+Version:	1.4.2
 Release:	1
 License:	GPL
 Group:		Development
 Source0:	http://download.berlios.de/bitbake/%{name}-%{version}.tar.gz
-# Source0-md5:	62c799d91d291a17078d6c23a94e793e
+# Source0-md5:	e26e53dffbd85dfde9995ddf478cdc29
 URL:		http://developer.berlios.de/projects/bitbake/
 BuildRequires:	python-devel >= 2.0
 %pyrequires_eq	python
@@ -58,5 +58,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_sysconfdir}/%{name}
 %dir %{py_sitescriptdir}/bb
 %{py_sitescriptdir}/bb/*py[co]
+%dir %{py_sitescriptdir}/bb/fetch
+%{py_sitescriptdir}/bb/fetch/*py[co]
 %dir %{py_sitescriptdir}/bb/parse
 %{py_sitescriptdir}/bb/parse/*py[co]
+%dir %{py_sitescriptdir}/bb/parse/parse_py
+%{py_sitescriptdir}/bb/parse/parse_py/*py[co]
