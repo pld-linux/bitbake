@@ -1,5 +1,5 @@
 Summary:	BitBake build tool
-Summary(pl):	BitBake - narzêdzie do budowania
+Summary(pl.UTF-8):   BitBake - narzÄ™dzie do budowania
 Name:		bitbake
 Version:	1.4.2
 Release:	1
@@ -24,14 +24,14 @@ compiling them, and so on. It is the basis of the OpenEmbedded
 project, which is being used for OpenZaurus, Familiar, and a number of
 other Linux distributions.
 
-%description -l pl
-BitBake to proste narzêdzie do wykonywania zadañ. Wywodzi siê z
-Portage, które jest systemem zarz±dzania pakietami u¿ywanym w
-dystrybucji Linuksa Gentoo. Najczê¶ciej jest u¿ywane do budowania
-pakietów, jako ¿e mo¿e ³atwo u¿ywaæ swojej elementarnej dziedziczno¶ci
-do abstrahowania wspólnych operacji, takich jak pobieranie ¼róde³,
-rozpakowywanie ich, ³atanie, kompilowanie i tak dalej. Jest podstaw±
-projektu OpenEmbedded, u¿ywanego przez projekty OpenZaurus, Familiar i
+%description -l pl.UTF-8
+BitBake to proste narzÄ™dzie do wykonywania zadaÅ„. Wywodzi siÄ™ z
+Portage, ktÃ³re jest systemem zarzÄ…dzania pakietami uÅ¼ywanym w
+dystrybucji Linuksa Gentoo. NajczÄ™Å›ciej jest uÅ¼ywane do budowania
+pakietÃ³w, jako Å¼e moÅ¼e Å‚atwo uÅ¼ywaÄ‡ swojej elementarnej dziedzicznoÅ›ci
+do abstrahowania wspÃ³lnych operacji, takich jak pobieranie ÅºrÃ³deÅ‚,
+rozpakowywanie ich, Å‚atanie, kompilowanie i tak dalej. Jest podstawÄ…
+projektu OpenEmbedded, uÅ¼ywanego przez projekty OpenZaurus, Familiar i
 wiele innych dystrybucji Linuksa.
 
 %prep
