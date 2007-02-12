@@ -1,5 +1,5 @@
 Summary:	BitBake build tool
-Summary(pl.UTF-8):   BitBake - narzędzie do budowania
+Summary(pl.UTF-8):	BitBake - narzędzie do budowania
 Name:		bitbake
 Version:	1.4.2
 Release:	1
