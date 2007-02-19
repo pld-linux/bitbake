@@ -8,7 +8,7 @@ Group:		Development
 Source0:	http://download.berlios.de/bitbake/%{name}-%{version}.tar.gz
 # Source0-md5:	1e6a4026500ea8844b61645bd947f8b4
 URL:		http://developer.berlios.de/projects/bitbake/
-BuildRequires:	python-devel >= 2.5
+BuildRequires:	python-devel >= 1:2.5
 %pyrequires_eq	python
 Requires:	python-modules
 BuildArch:	noarch
