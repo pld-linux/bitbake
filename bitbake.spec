@@ -1,14 +1,14 @@
 Summary:	BitBake build tool
 Summary(pl.UTF-8):	BitBake - narzędzie do budowania
 Name:		bitbake
-Version:	1.4.2
+Version:	1.6.6
 Release:	1
 License:	GPL
 Group:		Development
 Source0:	http://download.berlios.de/bitbake/%{name}-%{version}.tar.gz
-# Source0-md5:	e26e53dffbd85dfde9995ddf478cdc29
+# Source0-md5:	1e6a4026500ea8844b61645bd947f8b4
 URL:		http://developer.berlios.de/projects/bitbake/
-BuildRequires:	python-devel >= 2.0
+BuildRequires:	python-devel >= 2.5
 %pyrequires_eq	python
 Requires:	python-modules
 BuildArch:	noarch
@@ -43,11 +43,13 @@ python setup.py build
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
+
 python setup.py install \
 	--prefix=%{_prefix} \
 	--root=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_prefix}/%{name} $RPM_BUILD_ROOT%{_sysconfdir}
+mv $RPM_BUILD_ROOT%{_datadir}/%{name}/conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+ln -s %{_sysconfdir}/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/conf
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -56,6 +58,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_sysconfdir}/%{name}
+%{_datadir}/%{name}
+%{py_sitescriptdir}/*.egg-info
 %dir %{py_sitescriptdir}/bb
 %{py_sitescriptdir}/bb/*py[co]
 %dir %{py_sitescriptdir}/bb/fetch
