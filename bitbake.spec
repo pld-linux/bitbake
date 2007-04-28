@@ -1,15 +1,17 @@
 Summary:	BitBake build tool
 Summary(pl.UTF-8):	BitBake - narzędzie do budowania
 Name:		bitbake
-Version:	1.6.6
+Version:	1.8.2
 Release:	1
 License:	GPL
 Group:		Development
 Source0:	http://download.berlios.de/bitbake/%{name}-%{version}.tar.gz
-# Source0-md5:	1e6a4026500ea8844b61645bd947f8b4
+# Source0-md5:	08ef3d8bcb7fdea4f80aaea8644da7d8
 URL:		http://developer.berlios.de/projects/bitbake/
 BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	sed >= 4.0
 %pyrequires_eq	python
+Requires:	bash
 Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,6 +38,8 @@ wiele innych dystrybucji Linuksa.
 
 %prep
 %setup -q
+sed -i	-e 's@#!/bin/sh[[:space:]]@#!/bin/bash @'	\
+	-e 's@%s%ssh[[:space:]]@%s%sbash @'	lib/bb/build.py
 
 %build
 python setup.py build
@@ -59,7 +63,6 @@ rm -rf ${RPM_BUILD_ROOT}
 %attr(755,root,root) %{_bindir}/*
 %{_sysconfdir}/%{name}
 %{_datadir}/%{name}
-%{py_sitescriptdir}/*.egg-info
 %dir %{py_sitescriptdir}/bb
 %{py_sitescriptdir}/bb/*py[co]
 %dir %{py_sitescriptdir}/bb/fetch
