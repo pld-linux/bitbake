@@ -1,12 +1,12 @@
 Summary:	BitBake build tool
 Summary(pl.UTF-8):	BitBake - narzędzie do budowania
 Name:		bitbake
-Version:	1.8.2
+Version:	1.8.4
 Release:	1
 License:	GPL
 Group:		Development
 Source0:	http://download.berlios.de/bitbake/%{name}-%{version}.tar.gz
-# Source0-md5:	08ef3d8bcb7fdea4f80aaea8644da7d8
+# Source0-md5:	508d9a61c635d469be8facc95151158b
 URL:		http://developer.berlios.de/projects/bitbake/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	sed >= 4.0
