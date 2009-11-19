@@ -9,6 +9,7 @@ Source0:	http://download.berlios.de/bitbake/%{name}-%{version}.tar.gz
 # Source0-md5:	f772ca3121103ab3500c7f1609a96271
 URL:		http://developer.berlios.de/projects/bitbake/
 BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
 %pyrequires_eq	python
 Requires:	bash
