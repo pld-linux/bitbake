@@ -57,7 +57,7 @@ mv $RPM_BUILD_ROOT%{_datadir}/%{name}/conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 ln -s %{_sysconfdir}/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/conf
 
 %clean
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
