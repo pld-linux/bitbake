@@ -16,6 +16,7 @@ BuildRequires:	python-sqlite
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
 BuildRequires:	xmlto
+BuildConflicts:	bitbake
 Requires:	bash
 Requires:	python
 Requires:	python-modules
@@ -58,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 	--prefix=%{_prefix} \
 	--root=$RPM_BUILD_ROOT
 
-%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-1.8.18
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 mv $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
@@ -79,6 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/image-writer
 %{_datadir}/%{name}
 %{py_sitescriptdir}/bb
-%{py_sitescriptdir}/bitbake-1.8.18-py*.egg-info
+%{py_sitescriptdir}/bitbake-%{version}-py*.egg-info
 %{py_sitescriptdir}/codegen.py[co]
 %{py_sitescriptdir}/prserv
