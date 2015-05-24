@@ -1,31 +1,37 @@
 Summary:	BitBake build tool
 Summary(pl.UTF-8):	BitBake - narzędzie do budowania
 Name:		bitbake
-Version:	1.8.18
-Release:	2
-License:	GPL
+Version:	1.17.0
+Release:	1
+License:	GPL v2
 Group:		Development
-Source0:	http://download.berlios.de/bitbake/%{name}-%{version}.tar.gz
-# Source0-md5:	f772ca3121103ab3500c7f1609a96271
-URL:		http://developer.berlios.de/projects/bitbake/
+Source0:	http://git.openembedded.org/bitbake/snapshot/%{name}-%{version}.tar.gz
+# Source0-md5:	6ff19a24fdd20623b792225d84017506
+URL:		https://www.yoctoproject.org/tools-resources/projects/bitbake
+BuildRequires:	dblatex
+BuildRequires:	libxslt
+BuildRequires:	lynx
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
+BuildRequires:	xmlto
 Requires:	bash
 Requires:	python
 Requires:	python-modules
+Requires:	python-ply
+Requires:	python-progressbar
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-BitBake is a simple tool for the execution of tasks. It is derived
-from Portage, which is the package management system used by the
-Gentoo Linux distribution. It is most commonly used to build packages,
-as it can easily use its rudimentary inheritance to abstract common
-operations, such as fetching sources, unpacking them, patching them,
-compiling them, and so on. It is the basis of the OpenEmbedded
-project, which is being used for OpenZaurus, Familiar, and a number of
-other Linux distributions.
+BitBake is a make-like build tool with the special focus of
+distributions and packages for embedded Linux cross compilation
+although it is not limited to that. It is inspired by Portage, which
+is the package management system used by the Gentoo Linux
+distribution. BitBake existed for some time in the OpenEmbedded
+project until it was separated out into a standalone, maintained,
+distribution-independent tool. BitBake is co-maintained by the Yocto
+Project and the OpenEmbedded project.
 
 %description -l pl.UTF-8
 BitBake to proste narzędzie do wykonywania zadań. Wywodzi się z
@@ -47,28 +53,31 @@ sed -i	-e 's@#!/bin/sh[[:space:]]@#!/bin/bash @'	\
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_sysconfdir}
 %{__python} setup.py install \
 	--prefix=%{_prefix} \
 	--root=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_datadir}/%{name}/conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
-ln -s %{_sysconfdir}/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/conf
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-1.8.18
+
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+mv $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+ln -s %{_sysconfdir}/%{name}/%{name}.conf $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/bbimage
+%dir %{_sysconfdir}/%{name}
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/%{name}.conf
 %attr(755,root,root) %{_bindir}/bitbake
-%{_sysconfdir}/%{name}
+%attr(755,root,root) %{_bindir}/bitbake-diffsigs
+%attr(755,root,root) %{_bindir}/bitbake-layers
+%attr(755,root,root) %{_bindir}/bitbake-prserv
+%attr(755,root,root) %{_bindir}/bitbake-selftest
+%attr(755,root,root) %{_bindir}/image-writer
 %{_datadir}/%{name}
-%dir %{py_sitescriptdir}/bb
-%{py_sitescriptdir}/bb/*py[co]
-%dir %{py_sitescriptdir}/bb/fetch
-%{py_sitescriptdir}/bb/fetch/*py[co]
-%dir %{py_sitescriptdir}/bb/parse
-%{py_sitescriptdir}/bb/parse/*py[co]
-%dir %{py_sitescriptdir}/bb/parse/parse_py
-%{py_sitescriptdir}/bb/parse/parse_py/*py[co]
+%{py_sitescriptdir}/bb
+%{py_sitescriptdir}/bitbake-1.8.18-py*.egg-info
+%{py_sitescriptdir}/codegen.py[co]
+%{py_sitescriptdir}/prserv
