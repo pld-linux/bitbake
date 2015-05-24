@@ -45,6 +45,25 @@ rozpakowywanie ich, łatanie, kompilowanie i tak dalej. Jest podstawą
 projektu OpenEmbedded, używanego przez projekty OpenZaurus, Familiar i
 wiele innych dystrybucji Linuksa.
 
+%package manual
+Summary:	Manual for %{name}
+Summary(fr.UTF-8):	Documentation pour %{name}
+Summary(it.UTF-8):	Documentazione di %{name}
+Summary(pl.UTF-8):	Podręcznik dla %{name}
+Group:		Documentation
+
+%description manual
+Documentation for %{name}.
+
+%description manual -l fr.UTF-8
+Documentation pour %{name}.
+
+%description manual -l it.UTF-8
+Documentazione di %{name}.
+
+%description manual -l pl.UTF-8
+Dokumentacja do %{name}.
+
 %prep
 %setup -q
 sed -i -e 's@#!/bin/sh[[:space:]]@#!/bin/bash @' lib/bb/build.py
@@ -82,3 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/bitbake-%{version}-py*.egg-info
 %{py_sitescriptdir}/codegen.py[co]
 %{py_sitescriptdir}/prserv
+
+%files manual
+%defattr(644,root,root,755)
+%doc doc/manual/html/*
