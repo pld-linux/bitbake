@@ -47,8 +47,7 @@ wiele innych dystrybucji Linuksa.
 
 %prep
 %setup -q
-sed -i	-e 's@#!/bin/sh[[:space:]]@#!/bin/bash @'	\
-	-e 's@%s%ssh[[:space:]]@%s%sbash @'	lib/bb/build.py
+sed -i -e 's@#!/bin/sh[[:space:]]@#!/bin/bash @' lib/bb/build.py
 
 %build
 %{__python} setup.py build
