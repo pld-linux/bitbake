@@ -11,8 +11,8 @@ URL:		http://developer.berlios.de/projects/bitbake/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
-%pyrequires_eq	python
 Requires:	bash
+Requires:	python
 Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -43,13 +43,12 @@ sed -i	-e 's@#!/bin/sh[[:space:]]@#!/bin/bash @'	\
 	-e 's@%s%ssh[[:space:]]@%s%sbash @'	lib/bb/build.py
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
-
-python setup.py install \
+%{__python} setup.py install \
 	--prefix=%{_prefix} \
 	--root=$RPM_BUILD_ROOT
 
@@ -61,7 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/bbimage
+%attr(755,root,root) %{_bindir}/bitbake
 %{_sysconfdir}/%{name}
 %{_datadir}/%{name}
 %dir %{py_sitescriptdir}/bb
