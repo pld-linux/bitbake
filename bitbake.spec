@@ -8,14 +8,15 @@ Group:		Development
 Source0:	http://git.openembedded.org/bitbake/snapshot/%{name}-%{version}.tar.gz
 # Source0-md5:	6ff19a24fdd20623b792225d84017506
 URL:		https://www.yoctoproject.org/tools-resources/projects/bitbake
-BuildRequires:	dblatex
+BuildRequires:	docbook-dtd42-xml
+BuildRequires:	docbook-style-xsl
+BuildRequires:	libxml2-progs
 BuildRequires:	libxslt
-BuildRequires:	lynx
+BuildRequires:	libxslt-progs
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-sqlite
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
-BuildRequires:	xmlto
 BuildConflicts:	bitbake
 Requires:	bash
 Requires:	python
