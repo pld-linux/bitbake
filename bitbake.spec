@@ -12,6 +12,7 @@ BuildRequires:	dblatex
 BuildRequires:	libxslt
 BuildRequires:	lynx
 BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python-sqlite
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
 BuildRequires:	xmlto
