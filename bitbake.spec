@@ -8,6 +8,7 @@ Group:		Development
 Source0:	http://git.openembedded.org/bitbake/snapshot/%{name}-%{version}.tar.gz
 # Source0-md5:	6ff19a24fdd20623b792225d84017506
 URL:		https://www.yoctoproject.org/tools-resources/projects/bitbake
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	docbook-dtd42-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	libxml2-progs
