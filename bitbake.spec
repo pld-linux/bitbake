@@ -2,7 +2,7 @@ Summary:	BitBake build tool
 Summary(pl.UTF-8):	BitBake - narzędzie do budowania
 Name:		bitbake
 Version:	1.17.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Development
 Source0:	http://git.openembedded.org/bitbake/snapshot/%{name}-%{version}.tar.gz
